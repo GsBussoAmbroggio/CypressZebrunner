@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@zebrunner/javascript-agent-cypress": "^1.0.43",
     "cypress": "^12.4.1"
   }
 }
