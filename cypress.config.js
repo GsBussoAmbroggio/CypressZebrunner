@@ -23,9 +23,10 @@ module.exports = defineConfig({
     "reportingProjectKey": "ALPHA",
     "reportingRunEnvironment": "STAGE",
     "reportingRunBuild": "1.0-alpha",
-    "reportingRunDisplayName": "My regression suite",
+    "reportingRunDisplayName": "Steam Web Demo",
     "reportingRunLocale": "en_US",
-    "reportingCiRunId": "46190073-55db-4411-ac42-fd42b7c96958"
+    "reportingCiRunId": "46190073-55db-4411-ac42-fd42b7c96958",
+    "reportingEnabled": true,
   }
 
 });
