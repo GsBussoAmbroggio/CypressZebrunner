@@ -8,6 +8,13 @@ module.exports = defineConfig({
     },
 
   },
+  env: {
+    url : "https://store.steampowered.com",
+    loginUrl: "https://store.steampowered.com/login/",
+    userName: "the4fantastiquest",
+    passWord: "testautomation{enter}"
+  },
+
 
   reporter: "@zebrunner/javascript-agent-cypress",
   "reporterOptions": {

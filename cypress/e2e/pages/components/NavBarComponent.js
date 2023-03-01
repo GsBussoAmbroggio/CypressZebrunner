@@ -1,10 +1,16 @@
 import BasePage from "../BasePage";
-import constants from "../Constants";
+import {navBarLocators} from "../../locators";
 
 class NavBarComponent extends BasePage{
-    navItemStore = '.supernav_container > [data-tooltip-content=".submenu_store"]'
+
     constructor() {
         super();
+    }
+    clickOnStore(){
+        cy.get(navBarLocators.navItemStore).click()
+    }
+    searchForProduct(product){
+        cy.get(navBarLocators.searchBar).type(product + '{enter}')
     }
 
 }

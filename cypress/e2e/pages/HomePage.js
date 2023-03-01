@@ -1,8 +1,7 @@
 
 import BasePage from "./BasePage";
-import constants from "../Constants";
+import constants from "../locators";
 class HomePage extends BasePage{
-    loginBtn = "#global_action_menu > a"
     constructor() {
         super();
 

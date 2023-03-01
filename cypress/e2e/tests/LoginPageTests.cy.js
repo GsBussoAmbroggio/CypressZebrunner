@@ -1,20 +1,14 @@
 import LoginPage from "../pages/LoginPage";
-import constants from "../Constants";
+import {loginPageLocators} from "../locators";
 describe('Testing Loginpage', ()=>{
 
     let loginPage = new LoginPage()
     beforeEach("navigate to steam login page", ()=>{
-        cy.log('Navigating to login')
-        loginPage.navigate("https://store.steampowered.com/login/");
-        cy.log('Filling imputs')
-        cy.get(loginPage.imputEmail).type('the4fantastiquest');
-        cy.get(loginPage.imputPassword).type('testautomation{enter}');
-        cy.wait(5000)
+        loginPage.login()
     })
 
    it('Should log off', ()=>{
-       cy.get('#account_pulldown').click();
-       cy.get('[href="javascript:Logout();"]').click()
+       loginPage.logout()
    })
 
 

@@ -1,36 +1,36 @@
 import StorePage from "../pages/StorePage";
 import NavBarComponent from "../pages/components/NavBarComponent";
 import LoginPage from "../pages/LoginPage";
-import constants from "../Constants";
+import {storePageLocators} from "../locators";
+
 describe('Testing store page workflows' ,()=>{
+
     let loginPage = new LoginPage();
     let navBar = new NavBarComponent();
+    let storePage = new StorePage();
     beforeEach("navigate to steam login page", ()=>{
-        loginPage.navigate("https://store.steampowered.com/login/");
-        cy.get(loginPage.imputEmail).type('the4fantastiquest');
-        cy.get(loginPage.imputPassword).type('testautomation{enter}');
-        cy.wait(5000)
+        loginPage.login()
     })
 
     it('Should add an item to wishlist', ()=>{
-        navBar.clickOnElement(navBar.navItemStore)
-        cy.get('#store_nav_search_term').type('Cyberpunk{enter}')
-        cy.get('[href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/?snr=1_7_7_151_150_1"] > .responsive_search_name_combined > .search_name > .title').click()
-        cy.get('#ageYear').eq(0).select('1992')
-        cy.get('#view_product_page_btn > span').click()
-        cy.get('#add_to_wishlist_area > .btnv6_blue_hoverfade > span').click()
+        navBar.clickOnStore()
+        navBar.searchForProduct('Cyberpunk 2077')
+        storePage.clickCyberpunk()
+        storePage.fillBirthDaySelect('1992')
+        storePage.viewProductPage()
+        storePage.addToWishlist()
         cy.wait(3000)
     })
     it('Should check my item is on wishlist', ()=>{
-        navBar.clickOnElement(navBar.navItemStore)
-        cy.get('#wishlist_link').click()
+        navBar.clickOnStore()
+        storePage.clickUserWishlist()
         cy.wait(3000)
         if(cy.get('.title').contains('Cyberpunk 2077')){
-            cy.get('.delete').click()
-            cy.get('.newmodal_buttons > .btn_green_steamui > span').click()
+            storePage.deleteItemFromWishlist()
+            cy.get(storePageLocators.acceptDeleteBtn).click()
         }
 
-        cy.get('#nothing_to_see_here > h2').should('be.visible')
-
+        cy.get(storePageLocators.noItemWishlistTitle).should('be.visible')
+        loginPage.logout()
     })
 })
