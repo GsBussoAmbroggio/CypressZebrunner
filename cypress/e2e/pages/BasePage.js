@@ -1,3 +1,4 @@
+import constants from "../Constants";
 class BasePage{
 
     navigate(url){

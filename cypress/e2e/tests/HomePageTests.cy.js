@@ -1,6 +1,7 @@
  ///<reference types='cypress' />
 
  import HomePage from "../pages/HomePage";
+ import constants from "../Constants";
  describe("Steam HomePage testing",() => {
 
      let homepage = new HomePage()

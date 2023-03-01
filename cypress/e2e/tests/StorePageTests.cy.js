@@ -1,6 +1,7 @@
 import StorePage from "../pages/StorePage";
 import NavBarComponent from "../pages/components/NavBarComponent";
 import LoginPage from "../pages/LoginPage";
+import constants from "../Constants";
 describe('Testing store page workflows' ,()=>{
     let loginPage = new LoginPage();
     let navBar = new NavBarComponent();
