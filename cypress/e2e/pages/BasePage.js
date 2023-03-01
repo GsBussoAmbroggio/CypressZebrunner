@@ -1,4 +1,4 @@
-import constants from "../locators";
+
 class BasePage{
 
     navigate(url){

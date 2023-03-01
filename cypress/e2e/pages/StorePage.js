@@ -6,9 +6,9 @@ class StorePage extends BasePage{
         super();
 
     }
-    clickCyberpunk(){
+    clickFirstStoreElement(){
 
-        cy.get(storePageLocators.cyberPunkStoreElement).click()
+        cy.get(storePageLocators.firstStoreElementTitle).click()
     }
     fillBirthDaySelect(year){
 
@@ -29,7 +29,20 @@ class StorePage extends BasePage{
         cy.get(storePageLocators.deleteFromWishlistBtn).click()
     }
 
-
+    goToTopSeller(){
+        this.clickOnElement(storePageLocators.topSellerBtn);
+    }
+    orderByPrice(element){
+        this.clickOnElement(storePageLocators.orderDropdown);
+        if(element === "bajo"){
+            this.clickOnElement(storePageLocators.ascOrder);
+        }else{
+            this.clickOnElement(storePageLocators.descOrder);
+        }
+    }
+    firstElementContains(locator, parameter){
+        cy.get(locator).should('contain', parameter);
+    }
 
 
 }
